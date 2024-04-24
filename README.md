@@ -1,50 +1,29 @@
-# Спринт 6 #
+# Project Overview
 
-* Скопируйте проект в директорию:
-```shell script
-git clone https://github.com/practicum-de/s6-lessons.git
-```
-* Перейдите в директорию c проектом:
-```shell script
-cd s6-lessons
-```
-* Создайте [виртуальное окружение](https://docs.python.org/3/library/venv.html) и активируйте его:
-```shell script
-python3 -m venv venv
-```
+This project focuses on developing a Data Vault storage solution for data retrieved from Amazon S3, leveraging a robust technology stack to manage and analyze data effectively.
 
-* Активируйте его:
-```shell script
-source venv/bin/activate
-```
-или в Windowns
-```shell script
-source venv/Scripts/activate
-```
+## Technology Stack
 
-* Обновите pip до последней версии:
-```shell script
-pip install --upgrade pip
-```
-* Установите зависимости:
-```shell script
-pip install -r requirements.txt
-```
-Запустите docker-compose:
-`docker compose up -d`
+- **Data Vault**: The methodology applied for creating a scalable and flexible data warehouse using the Data Vault architecture.
+- **Apache Airflow**: Used for orchestrating and automating the workflows for data extraction, loading, and transformation.
+- **Vertica DB**: Serves as the high-performance SQL database for storing and querying large datasets, utilizing its columnar storage capabilities.
+- **S3 API**: Utilized for accessing and managing data stored in Amazon S3 buckets.
+- **Docker**: Employed to containerize and isolate the application environment, ensuring consistency across different development and production settings.
 
-Если у Вас не установлен python 3.8 то самое время сделать это. 
+## Main Task
 
-Airflow доступен по адресу http://localhost:3000/airflow
-Metabse - http://localhost:3333/
+The primary objective of this project is to develop a Data Vault-based storage system. This involves:
 
-Если в Metabase на шаге выбора БД отсутствует опция Vertica, проверьте логи на вкладке "Разрешение проблем". Скорее всего вы найдете сообщение "java.lang.AssertionError: Assert failed: Metabase does not have permissions to write to plugins directory /plugins". В таком случае в папке с репозиторием (в которой должна находиться папка plugins) выполните команду `chmod -R 777 plugins` после чего перезапустите контейнер с Metabase - `docker restart s6-lessons_metabase_1`.
+- Designing and implementing a scalable Data Vault model within Vertica DB.
+- Extracting data from Amazon S3 using S3 API integrations.
+- Automating data flows and ETL processes with Apache Airflow to populate the Data Vault.
+- Ensuring data consistency and integrity throughout the data lifecycle.
+- Configuring Docker containers to manage the application and its dependencies efficiently.
 
-В DBeaver рекомендуется использовать драйвер 11.1, если подключение не устанавливается то 12.0.4.
+## Goals
 
-Перед запуском тестов убедитесь что запущен контейнер.
+- **Efficiency**: Optimize data retrieval and storage processes to handle large volumes of data efficiently.
+- **Scalability**: Design the system to scale seamlessly with increasing data sizes and complexity.
+- **Reliability**: Ensure high availability and reliability of the data storage and retrieval processes.
 
-Остановка и очистка:
-```bash
-docker compose down --volumes --rmi all
-```
+This project aims to harness the strengths of each component in the technology stack to create a robust data warehousing solution that supports complex data analysis and business intelligence activities.
