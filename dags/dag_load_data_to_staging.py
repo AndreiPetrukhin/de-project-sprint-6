@@ -1,13 +1,14 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.empty import EmptyOperator
+from airflow.models import Variable
 from airflow.decorators import dag
 import pendulum
 from vertica_utils import VerticaUtils
 
-HOST = 'vertica.tgcloudenv.ru'
-USER = 'stv202404106'
-PASSWORD = 'J0KACym2PCiSjyV'
+HOST = Variable.get("vertica_host")
+USER = Variable.get("vertica_user")
+PASSWORD = Variable.get("vertica_password")
 SCHEMA = f'{USER}__STAGING'
 
 # Initialize VerticaUtils with connection details
